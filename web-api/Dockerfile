@@ -6,6 +6,6 @@ COPY requirements.txt .
 
 RUN pip install  -r requirements.txt
 
-COPY . .
+COPY . /app
 
-RUN ["uvicorn", "web_service.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+RUN ["uvicorn", "web_service:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
