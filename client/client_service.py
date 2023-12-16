@@ -1,6 +1,5 @@
 import asyncio
 import aiohttp
-import requests
 import threading
 import random
 from time import sleep
@@ -36,7 +35,7 @@ async def generate_string():
 
 
 async def send_log_entry(log):
-    async with aiohttp.ClientSession as session:
+    async with aiohttp.ClientSession() as session:
         payload = {'log': log}
         async with session.post(URI_API, json=payload) as response:
             response_json = await response.json()
@@ -55,7 +54,7 @@ def start_client_service():
     asyncio.run(main())
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     for _ in range(NUMBER_THREADS):
         thread = threading.Thread(target=start_client_service)
         threads.append(thread)

@@ -1,0 +1,3 @@
+aiohttp~=3.9.1
+aiologger~=0.7.0
+uvicorn~=0.24.0.post1
