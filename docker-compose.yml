@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 services:
 
   web-api:
@@ -8,19 +8,16 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
-
   client:
     build:
       context: ./client
     depends_on:
       - web-api
-
   background:
     build:
       context: ./background
     depends_on:
       - web-api
-
   postgres:
     image: postgres:latest
     environment:

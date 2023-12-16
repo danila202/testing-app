@@ -1,12 +1,12 @@
 FROM python:3.10-slim
 
-WORKDIR /app
+WORKDIR /test
 
 COPY requirements.txt .
 
 RUN pip install  -r requirements.txt
 
-COPY . /app
+COPY . /test
 
 CMD ["python3", "backgrounds.py"]
 
